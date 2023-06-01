@@ -8,7 +8,4 @@ import { StatusUpdatesService } from '../status-updates.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent {
-
-
-
 }

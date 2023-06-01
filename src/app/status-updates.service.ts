@@ -22,7 +22,7 @@ export class StatusUpdatesService {
     let hx: string[] = Array.from(squares);
     this.history.push(hx);
     this.xIsNext.push(xIsNext);
-  
+
   }
   
 }
