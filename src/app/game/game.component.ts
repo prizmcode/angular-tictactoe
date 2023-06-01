@@ -9,7 +9,6 @@ import { StatusUpdatesService } from '../status-updates.service';
 })
 export class GameComponent {
 
-  constructor(private gameService: GameService, public statusService: StatusUpdatesService) {}
 
 
 }

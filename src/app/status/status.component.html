@@ -1,11 +1,4 @@
-<div *ngIf="statusService.messages.length">
-    <button type="button" class="clear" (click)="statusService.clear()">Clear messages</button>
-    <div *ngFor="let message of statusService.messages">{{message}}</div>
-    
-    </div>
+<div class="bg-amber-400 p-5 text-xl font-bold" *ngIf="statusService.messages.length">
+    <div>{{statusService.messages[statusService.messages.length-1]}}</div>
+</div>
 
-    <div *ngIf="statusService.history.length">
-        <button type="button" class="clear" (click)="statusService.clear()">Clear messages</button>
-        <button class="p-5 m-5" *ngFor="let history of statusService.history" (click)="gameService.jumpToMove(history)">{{history}}</button>
-        
-        </div>

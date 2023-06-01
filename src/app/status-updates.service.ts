@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class StatusUpdatesService {
   messages: string[] = [];
   history: any[] = [];
+  xIsNext: any[] = [];
 
   add(message: string) {
     this.messages.push(message);
@@ -13,10 +14,15 @@ export class StatusUpdatesService {
 
   clear() {
     this.messages = [];
+    this.history = [];
   }
 
-  addHistory(squares: any[]) {
-    this.history.push(squares);
+  // log squares and player
+  addHistory(squares: string[], xIsNext: boolean) {
+    let hx: string[] = Array.from(squares);
+    this.history.push(hx);
+    this.xIsNext.push(xIsNext);
+  
   }
   
 }

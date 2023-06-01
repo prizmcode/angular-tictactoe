@@ -12,6 +12,7 @@ export class GameService {
   currentMove: number = 0;
   xIsNext: boolean = true;
   winner: string = '';
+  
 
   updateSquare(id: any) {
 
@@ -27,25 +28,19 @@ export class GameService {
       this.squares[id] = 'O';
     }
 
-    console.log(this.squares);
-
     // check for winner
     this.winner = this.calculateWinner(this.squares);
-    console.log('winner' + this.winner);
-    
    
     if (this.winner) {
-      this.statusService.add('Winner: ' + this.winner);
+      this.statusService.clear();
+      this.statusService.add(this.winner + ' is WINNER!!!!!!!');
 
       return this.squares[id];
     } else {
           // log move
-      this.statusService.addHistory(this.squares);
+      this.statusService.addHistory(this.squares, this.xIsNext);
       this.statusService.add('Next player: ' + (this.xIsNext ? 'O' : 'X'));
     }
-    
-
-   
 
     // iterate move
     this.currentMove = this.currentMove + 1;
@@ -77,9 +72,17 @@ export class GameService {
     return null;
   }
 
-  jumpToMove(move: any[]) {
-    this.squares = move;
-    console.log('here');
+  jumpToMove(index: number, xIsNext: boolean) {
+    this.squares = this.statusService.history[index];
+    this.xIsNext = xIsNext;
+    this.statusService.add('Next player: ' + (xIsNext ? 'X' : 'O'));
+  }
+
+  clear() {
+    this.squares = [];
+    this.winner = '';
+    this.currentMove = 0;
+    this.xIsNext = true;
   }
 
 }

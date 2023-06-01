@@ -10,10 +10,10 @@ export class SquareComponent {
   @Input() id = 0;
   
  
-  constructor(private gameService: GameService) {}
+  constructor(public gameService: GameService) {}
   
   handleMove(element: any) {
-    element.textContent = this.gameService.updateSquare(this.id);
+    this.gameService.updateSquare(this.id);
   }
   
 }

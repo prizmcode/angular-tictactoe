@@ -1,9 +1,16 @@
-<h1 class="text-4xl font-bold text-center ">Tic Tac Toe</h1>
-<div class="mx-50 p-20 mx-auto bg-gray-400 text-center w-3/5">
- 
-
-<app-game></app-game>
-
-
+<div class="bg-gradient-to-b from-gray-600 to-slate-800">
+<div class="grid grid-cols-2">
+  <h1 class="text-6xl font-bold px-10 text-white my-5">Tic-Tac-Toe</h1>
+  
 </div>
-<app-status></app-status>
+
+<div class="grid grid-cols-5">
+  <div class="mx-50 px-10 mx-auto text-center w-full col-span-3">
+    <app-game></app-game>
+  </div>
+  <div class="">
+  <app-status></app-status>
+  <app-history></app-history>
+</div>
+</div>
+</div>

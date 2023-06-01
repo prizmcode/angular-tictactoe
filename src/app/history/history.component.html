@@ -1,0 +1,5 @@
+<div *ngIf="gameService.currentMove > 0"><button class="block text-white p-5 bg-orange-700 my-5 text-lg" (click)="statusService.clear(); gameService.clear();">Clear Game</button></div>
+<div class="text-white" *ngIf="statusService.history.length">
+    <button class="block text-lg bg-cyan-800 p-3 my-2" *ngFor="let history of statusService.history; let i=index"
+        (click)="gameService.jumpToMove(i, statusService.xIsNext[i-1])">Go Back To Move {{i + 1}}</button>
+</div>

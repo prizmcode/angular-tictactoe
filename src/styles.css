@@ -4,3 +4,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background: #1e293b;
+}
+
+@font-face {
+    font-family: 'Press Start';
+    src: url('assets/PressStart2P-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Cherry Bomb';
+    src: url('assets/CherryBombOne-Regular.ttf');
+}
+
+h1 {
+    font-family: 'Cherry Bomb';
+}
