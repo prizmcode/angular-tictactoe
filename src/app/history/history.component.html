@@ -4,5 +4,5 @@
 <div class="text-white text-sm md:text-lg" *ngIf="statusService.history.length">
     <button class="block md:text-lg bg-gradient-to-b from-cyan-800 to-cyan-700 p-3 my-2 text-left rounded-lg drop-shadow-lg"
         *ngFor="let history of statusService.history; let i=index"
-        (click)="gameService.jumpToMove(i, statusService.xIsNext[i-1])">Go Back To Move {{i + 1}}</button>
+        (click)="gameService.jumpToMove(i, statusService.xIsNext[i-1], statusService.moves[i-1])">Go Back To Move {{i + 1}}</button>
 </div>

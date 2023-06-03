@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { GameService } from '../game.service';
-import { StatusUpdatesService } from '../status-updates.service';
 
 @Component({
   selector: 'app-game',

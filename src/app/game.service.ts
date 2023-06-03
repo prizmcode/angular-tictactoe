@@ -12,33 +12,31 @@ export class GameService {
   currentMove: number = 0;
   xIsNext: boolean = true;
   winner: string = '';
-  
 
   updateSquare(id: any) {
 
-    // if this square has already been chosen, or there is already a winner
+    // if this square has already been chosen, or there is already a winner, return
     if (this.squares[id] || this.winner) {
       return this.squares[id]
     } 
     
-     // set value and assign who goes next
+     // set value of move and assign who goes next
      if (this.xIsNext) {
       this.squares[id] = 'X';
     } else {
       this.squares[id] = 'O';
     }
 
-    // check for winner
+    // check for winner, and if so game is complete
     this.winner = this.calculateWinner(this.squares);
    
     if (this.winner) {
       this.statusService.clear();
-      this.statusService.add(this.winner + ' is WINNER!!!!!!!');
-
+      this.statusService.add(this.winner + ' is the winner!!!');
       return this.squares[id];
     } else {
-          // log move
-      this.statusService.addHistory(this.squares, this.xIsNext);
+    // log move
+      this.statusService.addHistory(this.squares, this.xIsNext, this.currentMove);
       this.statusService.add('Next player: ' + (this.xIsNext ? 'O' : 'X'));
     }
 
@@ -72,9 +70,10 @@ export class GameService {
     return null;
   }
 
-  jumpToMove(index: number, xIsNext: boolean) {
+  jumpToMove(index: number, xIsNext: boolean, move: number) {
     this.squares = this.statusService.history[index];
     this.xIsNext = xIsNext;
+    this.currentMove = move;
     this.statusService.add('Next player: ' + (xIsNext ? 'X' : 'O'));
   }
 
